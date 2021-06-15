@@ -4,19 +4,21 @@
 namespace Learning\DesignPattern\Services;
 
 
+use Learning\DesignPattern\Discounts\DiscountPlus500Moneys;
+use Learning\DesignPattern\Discounts\DiscountPlus5Items;
+use Learning\DesignPattern\Discounts\NoDiscount;
 use Learning\DesignPattern\Models\Inquiry;
 
 class DiscountCalculator
 {
     public function calcDiscount(Inquiry $inquiry): float
     {
-        if ($inquiry->quantityItems > 5) {
-            return $inquiry->value * 0.1;
-        }
+        $discountsChain = new DiscountPlus5Items(
+            new DiscountPlus500Moneys(
+                new NoDiscount()
+            )
+        );
 
-        if ($inquiry->value > 500){
-            return $inquiry->value * 0.05;
-        }
-        return 0;
+        return $discountsChain->calcDiscount($inquiry);
     }
 }

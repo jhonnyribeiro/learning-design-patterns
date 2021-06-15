@@ -8,4 +8,5 @@ class Inquiry
 {
     public float $value;
     public int $quantityItems;
+    public float $discount;
 }

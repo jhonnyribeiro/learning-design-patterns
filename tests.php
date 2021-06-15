@@ -17,8 +17,7 @@ echo "Valor Orçamento: ".$inquiry->value.PHP_EOL;
 echo "Valor ICMS: ".$calculator->calc($inquiry, new ICMS()).PHP_EOL;
 echo "Valor ISS: ".$calculator->calc($inquiry, new ISS()).PHP_EOL;
 
-$inquiry->quantityItems = 7;
-
+$inquiry->quantityItems = 5;
 $discountCalculator = new DiscountCalculator();
 
 
