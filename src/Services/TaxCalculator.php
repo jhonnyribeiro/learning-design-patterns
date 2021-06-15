@@ -3,16 +3,12 @@
 namespace Learning\DesignPattern\Services;
 
 use Learning\DesignPattern\Models\Inquiry;
+use Learning\DesignPattern\Taxes\Tax;
 
 class TaxCalculator
 {
-    public function calc(Inquiry $inquiry, string $taxName)
+    public function calc(Inquiry $inquiry, Tax $tax)
     {
-        switch ($taxName) {
-            case "ICMS":
-                return $inquiry->value * 0.1;
-            case "ISS":
-                return $inquiry->value * 0.06;
-        }
+        return $tax->calcTax($inquiry);
     }
 }
