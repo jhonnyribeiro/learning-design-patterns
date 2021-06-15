@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Learning\DesignPattern;
+namespace Learning\DesignPattern\Models;
 
 
 class Inquiry
