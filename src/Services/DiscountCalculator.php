@@ -14,6 +14,9 @@ class DiscountCalculator
             return $inquiry->value * 0.1;
         }
 
+        if ($inquiry->value > 500){
+            return $inquiry->value * 0.05;
+        }
         return 0;
     }
 }

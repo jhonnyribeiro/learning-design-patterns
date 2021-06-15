@@ -11,7 +11,7 @@ require 'vendor/autoload.php';
 $calculator = new TaxCalculator();
 
 $inquiry = new Inquiry();
-$inquiry->value = 100;
+$inquiry->value = 600;
 
 echo "Valor Orçamento: ".$inquiry->value.PHP_EOL;
 echo "Valor ICMS: ".$calculator->calc($inquiry, new ICMS()).PHP_EOL;
